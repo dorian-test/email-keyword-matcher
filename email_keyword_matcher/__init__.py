@@ -42,6 +42,21 @@ class EmailKeywordMatcher:
         message = f"Subject: {subject}\n\n{contents}\n\nKeywords: {self.keywords}"
         self._smtp.sendmail(self._email, to_email, message)
 
+    def is_response(self, from_email: str, subject: str) -> bool:
+        return len(self.get_response(from_email, subject)) > 0
+
+    def get_response(self, from_email: str, subject: str) -> typing.List:
+        self._imap.noop()  # this allows imap to refresh otherwise it sees no new mail
+        return_code, matches = self._imap.search(
+            None,
+            f'FROM "{from_email}"',
+            f'SUBJECT "{subject}"',
+            '(UNSEEN)',
+        )
+        if return_code != 'OK':
+            raise RuntimeError(f"Got return code '{return_code}' from searching")
+        return matches if matches != [b''] else []
+
     def process_recieved(self, from_email: str, subject: str) -> None:
         keyword = self._get_keyword_response(from_email, subject)
         self._keyword_fns[keyword]()
@@ -54,9 +69,9 @@ class EmailKeywordMatcher:
 
     def _get_payload(self, from_email: str, subject: str) -> str:
 
-        return_code, matches = self._imap.search(None, f'FROM "{from_email}" SUBJECT "{subject}"')
-        if return_code != 'OK':
-            raise RuntimeError(f"Got return code '{return_code}' from searching")
+        matches = self.get_response(from_email, subject)
+        if not matches:
+            raise RuntimeError(f"No messages found")
 
         return_code, data = self._imap.fetch(matches[0], '(RFC822)')
         if return_code != 'OK':
