@@ -22,7 +22,7 @@ setup(
     name='email-keyword-matcher',
     packages=['email_keyword_matcher'],
     version='0.0.1',
-    description='Use keyword responses to an email to trigger specific callbacks.',
+    description='Use respond to an email to trigger specific callbacks.',
     long_description=read_file('README.md'),
     license='MIT',
     author='Audrow Nash',
