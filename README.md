@@ -1,9 +1,9 @@
 README
 ======
 
-![Continuous Integration](https://github.com/audrow/email-keyword-matcher/workflows/Continuous%20Integration/badge.svg)
+[![Continuous Integration](https://github.com/audrow/email-keyword-matcher/workflows/Continuous%20Integration/badge.svg)](https://github.com/audrow/email-keyword-matcher/actions?query=workflow%3A%22Continuous+Integration%22+branch%3Amaster)
 [![codecov](https://codecov.io/gh/audrow/email-keyword-matcher/branch/master/graph/badge.svg)](https://codecov.io/gh/audrow/email-keyword-matcher)
-![PyPI](https://img.shields.io/pypi/v/email-keyword-matcher)
+[![PyPI](https://img.shields.io/pypi/v/email-keyword-matcher)](https://pypi.org/project/email-keyword-matcher/)
 
 Send an email and perform an action when a user responds with one of a set of keywords.
 
