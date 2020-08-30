@@ -21,9 +21,10 @@ def read_file(filename):
 setup(
     name='email-keyword-matcher',
     packages=['email_keyword_matcher'],
-    version='0.0.1',
+    version='1.0.0',
     description='Use respond to an email to trigger specific callbacks.',
     long_description=read_file('README.md'),
+    long_description_content_type='text/markdown',
     license='MIT',
     author='Audrow Nash',
     author_email='audrow@hey.com',
