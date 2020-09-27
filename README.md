@@ -16,6 +16,9 @@ This currently has been tested using Gmail as a
 * Email the replier saying no keyword was found if the reply email doesn't contain a keyword
 * Check if an email has been replied to
 
+### Soon
+* Secure email signin
+
 ## Usage
 ```bash
 pip install email-keyword-matcher
