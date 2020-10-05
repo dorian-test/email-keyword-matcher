@@ -18,6 +18,7 @@ This currently has been tested using Gmail as a
 
 ### Soon
 * Secure email signin
+* Renew SMTP instance (currently it times out after a day or so)
 
 ## Usage
 ```bash
