@@ -151,3 +151,6 @@ class EmailKeywordMatcher:
             return message.get_payload(0).get_payload()
         else:
             return message.get_payload(0)
+
+def test():
+    pass
